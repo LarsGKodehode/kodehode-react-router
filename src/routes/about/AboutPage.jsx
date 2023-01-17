@@ -1,8 +1,9 @@
 function AboutPage() {
   return (
-    <div>
+    <main>
       <h1>About Page</h1>
-    </div>
+      <p>This is page resides at the URL "www.mypage.com/about"</p>
+    </main>
   )
 }
 
