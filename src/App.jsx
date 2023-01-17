@@ -1,17 +1,24 @@
 import {
-  HashRouter as Router,
-  Routes,
-  Route,
-  Link,
-  Outlet,
-  Navigate
+  HashRouter as Router, // A functional component required for using React Router
+  Routes, // A container component for our routes
+  Route, // Where we are going to put each route
+  Link, // For internal linking we are going to use this component
+  NavLink, // An alternative Link that can be used to conditionally style the component
+  Outlet, // A component that allows us to compose pages, similar to the 'props.children'
+  Navigate // Use this if you want to redirect the user to another URL
 } from 'react-router-dom'
 
+// The routes/pages we want to use in our application
 import LandingPage from './routes/LandingPage'
 import AboutPage from './routes/about/AboutPage'
 import Dashboard from './routes/dashboard/Dashboard'
 import Measurments from './routes/dashboard/Measurments/Measurments'
 
+/**
+ * Instead of having all this code inside our routing code we have extracted it out here
+ * Since it is only used inside this file there is no real need to extract it out into its
+ * own file, though you could
+ */
 function Navbar() {
   return (
     <>
