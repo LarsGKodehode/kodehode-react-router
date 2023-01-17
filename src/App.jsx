@@ -34,8 +34,9 @@ function App() {
     <Router>
 
       <Routes>
+
         <Route path='/' element={<Navbar />}>
-          <Route path='' element={<LandingPage />} />
+          <Route index element={<LandingPage />} />
           <Route path='about' element={<AboutPage />} />
 
           <Route path='dashboard' element={<Dashboard />}>
@@ -44,7 +45,9 @@ function App() {
         </Route>
 
         <Route path='*' element={<h1>404</h1>} />
+
       </Routes>
+
     </Router>
   )
 }
