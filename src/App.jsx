@@ -14,15 +14,25 @@ import AboutPage from './routes/about/AboutPage'
 import Dashboard from './routes/dashboard/Dashboard'
 import Measurments from './routes/dashboard/Measurments/Measurments'
 
+// Contexts
+import ScoreContext from './contexts/ScoreContext'
+import { useContext, useState } from 'react'
+
 /**
  * Instead of having all this code inside our routing code we have extracted it out here
  * Since it is only used inside this file there is no real need to extract it out into its
  * own file, though you could
  */
 function Navbar() {
+  const {score, updateScore} = useContext(ScoreContext)
+
   return (
     <>
       <header>
+        {/* Scoreboard */}
+        <h1>{score}</h1>
+        <button onClick={() => updateScore(10)}>Add 10 points</button>
+
         <nav>
           <ul>
             <Link to="/">Home</Link>
@@ -38,11 +48,20 @@ function Navbar() {
 }
 
 function App() {
+  const [score, setScore] = useState(0)
+
+  function updateScore(points) {
+    setScore(
+      (oldScore) => oldScore + points
+    )
+  }
+
   return (
     /**
      * The Router component needs to wrap around the whole Application
      */
     <Router>
+    <ScoreContext.Provider value={{score, updateScore}}>
 
       <Routes>
 
@@ -87,6 +106,7 @@ function App() {
 
       </Routes>
 
+    </ScoreContext.Provider>
     </Router>
   )
 }
