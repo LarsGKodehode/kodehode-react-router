@@ -1,4 +1,5 @@
 import {Outlet, Link} from 'react-router-dom'
+import MyProject from '../../components/MyProject/MyProject'
 
 import styles from './layout.module.css'
 
@@ -20,7 +21,11 @@ function Dashboard() {
       </nav>
 
       <main>
-        <Outlet />
+        <MyProject
+          className={styles.myProject}
+          user="LarsGKodehode"
+        />
+        {/* <Outlet /> */}
       </main>
     </div>
   )

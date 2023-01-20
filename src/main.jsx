@@ -7,7 +7,5 @@ import './styles/palette.css'
 import './styles/classes.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App />
 )
